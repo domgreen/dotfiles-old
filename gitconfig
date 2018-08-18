@@ -1,0 +1,7 @@
+[github]
+        user = domgreen
+[user]
+	name = Dominic Green
+	email = dominicgreen1@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
