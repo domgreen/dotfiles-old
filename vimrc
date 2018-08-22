@@ -36,6 +36,7 @@ syntax on                 "add syntax highlighting
 set number                "turn on line numbers
 set encoding=utf8
 set cursorline		  "easy to see what line your on
+set rtp+=~/.fzf
 
 " This is all about code folding
 set foldmethod=indent     "enable folding

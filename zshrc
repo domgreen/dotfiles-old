@@ -67,6 +67,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 eval "$(direnv hook zsh)"
+export PATH="$PATH:/improbable/tools/latest/linux/"
+export GOPATH=$HOME/go
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -95,3 +97,5 @@ eval "$(direnv hook zsh)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
