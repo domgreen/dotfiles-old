@@ -5,11 +5,12 @@
     ~/.vimrc: vimrc
     ~/.gitignore_global: gitignore_global
     ~/.gitconfig: gitconfig
+    ~/.zshrc: zshrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   -
-    - "if [ ! -d ~/.oh-my-zsh ]; then git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; fi"
+    - "if [ ! -d ~/.oh-my-zsh ]; then  sh -c \"$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"; fi"
     - Setting up oh-my-zsh
   -
     - "if [ ! -d ~/.vim/bundle/Vundle.vim ]; then git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim; fi"
