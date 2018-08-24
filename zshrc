@@ -67,7 +67,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 eval "$(direnv hook zsh)"
-export PATH="$PATH:/improbable/tools/latest/linux/"
+export PATH="$PATH:/improbable/tools/latest/linux"
 export GOPATH=$HOME/go
 # User configuration
 
