@@ -69,6 +69,19 @@ vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <up> <nop>
 
+" NERDTree
+" Open NERDTree in the directory of the current file (or /home if no file is open)
+function! NERDTreeToggleFind()
+"  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+"    execute ":NERDTreeClose"
+"  else
+    execute ":NERDTreeFind"
+"  endif
+endfunction
+
+nnoremap <leader>c :call NERDTreeToggleFind()<cr>
+
+" rust
 set hidden
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
