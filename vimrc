@@ -24,6 +24,11 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/fzf.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,6 +57,27 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:airline_powerline_fonts = 1
 set backspace=indent,eol,start
 set autowrite
+
+" arrow keys disable
+nnoremap <right> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <up> <nop>
+
+vnoremap <right> <nop>
+vnoremap <down> <nop>
+vnoremap <left> <nop>
+vnoremap <up> <nop>
+
+set hidden
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+" go stuff
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
@@ -68,7 +94,6 @@ endfunction
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 let g:go_fmt_command = "goimports"
-"let g:go_fmt_autosave = 0
 function! Imp()
 	execute "!"."go fmt"." ".bufname("%").">/dev/null 2>&1" | redraw!
 endfunction
