@@ -115,3 +115,13 @@ augroup dom
 	au!
 	au BufWrite *.go silent! :call Imp()
 augroup END
+
+" FZF nicer search
+nnoremap <leader>p :Files<CR>
+nnoremap <C-n> :Buffers<CR>
+" Preview files when calling File.
+command! -bang -nargs=? -complete=dir Files
+\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+nnoremap <leader>p :Files!<CR>
+" Like File, but with PWD.
+nnoremap <leader>P :call fzf#vim#files(expand("%:p:h"), fzf#vim#with_preview(), 1)<CR>
