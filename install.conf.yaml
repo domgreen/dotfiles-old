@@ -21,3 +21,10 @@
   -
     - "echo | vim +PluginInstall +qall"
     - Installing Vim plugins
+
+# https://github.com/tmux/tmux
+# curl https://sh.rustup.rs -sSf | sh
+# https://github.com/BurntSushi/ripgrep#installation
+# https://github.com/ogham/exa
+# sudo snap install tusk
+# sudo apt-get install vim-gnome -y

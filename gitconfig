@@ -5,3 +5,4 @@
 	email = dominicgreen1@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = vim

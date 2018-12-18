@@ -63,13 +63,17 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  kubectl
   zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
 eval "$(direnv hook zsh)"
 export PATH="$PATH:/improbable/tools/latest/linux"
+export PATH="$PATH:/usr/local/go/bin"
 export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH="$PATH:$HOME/.local/bin"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -98,5 +102,11 @@ export GOPATH=$HOME/go
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# https://github.com/ogham/exa
+alias ls='exa'
+alias l='exa -l'
+alias lla='exa -la'
+alias lt='exa -T'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
