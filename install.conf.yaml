@@ -1,4 +1,6 @@
-- clean: ['~']
+-sed distributions the package is libevent-dev
+
+ clean: ['~']
 
 - link:
     ~/.tmux.conf: tmux.conf
@@ -22,12 +24,23 @@
     - "echo | vim +PluginInstall +qall"
     - Installing Vim plugins
 
+
+# TODO(dom): automate the below       
+# sudo apt-get install libncurses5-dev libncursesw5-dev
+# apt-get install libevent-dev
 # https://github.com/tmux/tmux
+# 	$ ./configure && make
+#	$ sudo make install
 # curl https://sh.rustup.rs -sSf | sh
+# FZF
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install
 # https://github.com/BurntSushi/ripgrep#installation
 # https://github.com/ogham/exa
 # sudo snap install tusk
 # sudo apt-get install vim-gnome -y
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+# https://github.com/ryanoasis/nerd-fonts#option-3-install-script
 # sudo snap install gimp
+# tig https://github.com/jonas/tig/blob/master/INSTALL.adoc
 # sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin

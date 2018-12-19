@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/dom/.oh-my-zsh"
+export ZSH="/home/domgreen/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -74,6 +74,9 @@ export PATH="$PATH:/usr/local/go/bin"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/bin"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -109,4 +112,5 @@ alias l='exa -l'
 alias lla='exa -la'
 alias lt='exa -T'
 
+# enable fuzzy find
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
