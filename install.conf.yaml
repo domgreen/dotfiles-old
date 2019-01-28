@@ -1,6 +1,4 @@
--sed distributions the package is libevent-dev
-
- clean: ['~']
+- clean: ['~']
 
 - link:
     ~/.tmux.conf: tmux.conf
@@ -18,11 +16,12 @@
     - "if [ ! -d ~/.vim/bundle/Vundle.vim ]; then git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim; fi"
     - Setting up Vundle
   -
-    - "if [ ! -d ~/.vim/colors/molokai.vim ]; then mkdir ~/.vim/colors; \"$(curl -O ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim)\"; fi"
-    - Getting vim colors
-  -
     - "echo | vim +PluginInstall +qall"
     - Installing Vim plugins
+
+  -
+    - "echo | vim +PluginUpdate +qall"
+    - Updating Vim plugins
 
 
 # TODO(dom): automate the below       
