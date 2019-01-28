@@ -75,7 +75,7 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$GOBIN"
 
 # User configuration
 
@@ -105,6 +105,8 @@ export PATH="$PATH:$HOME/bin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias top='htop'
 
 # https://github.com/ogham/exa
 alias ls='exa'

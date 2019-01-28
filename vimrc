@@ -39,7 +39,7 @@ colorscheme molokai       "better colour scheme
 let python_highlight_all=1
 syntax on                 "add syntax highlighting
 set number                "turn on line numbers
-set encoding=utf8
+set encoding=utf-8
 set cursorline		  "easy to see what line your on
 set rtp+=~/.fzf
 
@@ -54,7 +54,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Cool fonts
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 set backspace=indent,eol,start
 set autowrite
 
@@ -70,6 +70,16 @@ vnoremap <left> <nop>
 vnoremap <up> <nop>
 
 " NERDTree
+" Open NERDTree as I open vim
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close NERDTree if its last buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Allow NERDTree delete buffers
+let NERDTreeAutoDeleteBuffer = 1
+
 " Open NERDTree in the directory of the current file (or /home if no file is open)
 function! NERDTreeToggleFind()
 "  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
