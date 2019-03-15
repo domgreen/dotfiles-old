@@ -1,44 +1,35 @@
 set nocompatible          "not compatible with vi
 filetype off              "required
 
-" WINDOWS
-" set the runtime path to include Vundle and initialize
-" set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-" call vundle#begin('$HOME/vimfiles/bundle/')
-
-" OSX & Ubuntu
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'fatih/vim-go'
-Plugin 'rust-lang/rust.vim'
-Plugin 'racer-rust/vim-racer'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/fzf.vim'
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
+Plug 'ryanoasis/vim-devicons'
+Plug 'myusuf3/numbers.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'scrooloose/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf.vim'
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'rhysd/vim-grammarous'
+call plug#end()
 
 let mapleader=","
 filetype plugin indent on "detect file types
-colorscheme molokai       "better colour scheme
 let python_highlight_all=1
 syntax on                 "add syntax highlighting
+colorscheme molokai
+let g:molokai_original = 1
 set number                "turn on line numbers
 set encoding=utf-8
 set cursorline		  "easy to see what line your on
@@ -50,9 +41,8 @@ set foldlevel=99
 nnoremap <space> za 
 let g:SimpylFold_docstring_preview=1
 
-" YouCompleteMe updates
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"Use deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Cool fonts
 let g:airline_powerline_fonts=1
@@ -91,6 +81,20 @@ function! NERDTreeToggleFind()
 endfunction
 
 nnoremap <leader>c :call NERDTreeToggleFind()<cr>
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 
 " rust
 set hidden
@@ -136,3 +140,6 @@ command! -bang -nargs=? -complete=dir Files
 nnoremap <leader>p :Files!<CR>
 " Like File, but with PWD.
 nnoremap <leader>P :call fzf#vim#files(expand("%:p:h"), fzf#vim#with_preview(), 1)<CR>
+
+" Org mode
+let g:org_agenda_files = ['~/org/index.org']
