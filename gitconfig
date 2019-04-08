@@ -4,6 +4,11 @@
 	name = Dominic Green
 	email = dominicgreen1@gmail.com
 	signingkey = C19F0F9E23537BA5
+[push]
+	default = current
+[merge]
+	conflictStyle = diff3
+	renamelimit = 0
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = vim
+	editor = nvim
