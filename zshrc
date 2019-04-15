@@ -108,6 +108,7 @@ export PATH="$PATH:$GOBIN"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias top='htop'
+alias vim="nvim"
 
 # https://github.com/ogham/exa
 alias ls='exa'
