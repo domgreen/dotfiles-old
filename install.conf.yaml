@@ -1,5 +1,11 @@
 - clean: ['~']
 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  -
+    - "if [ ! -d ~/.oh-my-zsh ]; then  sh -c \"$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"; fi"
+    - Setting up oh-my-zsh
+
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
@@ -7,39 +13,28 @@
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
 
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  -
-    - "if [ ! -d ~/.oh-my-zsh ]; then  sh -c \"$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"; fi"
-    - Setting up oh-my-zsh
-  -
-    - "if [ ! -d ~/.vim/bundle/Vundle.vim ]; then git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim; fi"
-    - Setting up Vundle
-  -
-    - "echo | vim +PluginInstall +qall"
-    - Installing Vim plugins
-
-  -
-    - "echo | vim +PluginUpdate +qall"
-    - Updating Vim plugins
-
 
 # TODO(dom): automate the below       
-# sudo apt-get install libncurses5-dev libncursesw5-dev
-# apt-get install libevent-dev
-# https://github.com/tmux/tmux
-# 	$ ./configure && make
-#	$ sudo make install
+# install gnome tweaks 
+# $ sudo add-apt-repository universe
+# $ sudo apt install gnome-tweak-tool
+# set default shell to be zsh and restart
+#? sudo apt-get install libncurses5-dev libncursesw5-dev
+#? apt-get install libevent-dev
+# sudo apt install tmux
 # curl https://sh.rustup.rs -sSf | sh
 # FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # ~/.fzf/install
 # https://github.com/BurntSushi/ripgrep#installation
-# https://github.com/ogham/exa
-# sudo snap install tusk
+# https://github.com/ogham/exa (downlaod zip)
+# curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
+# sudo dpkg -i ripgrep_0.10.0_amd64.deb
+# sudo apt  install direnv
 # sudo apt-get install vim-gnome -y
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
+# cp .vim/colors/molokai.vim .config/nvim/colors/
 # sudo snap install gimp
 # tig https://github.com/jonas/tig/blob/master/INSTALL.adoc
 # sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
