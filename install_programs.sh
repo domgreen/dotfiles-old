@@ -14,6 +14,7 @@ mkdir -p .config/nvim/colors/
 cp colors/molokai.vim .config/nvim/colors/
 
 echo 'open nvim and PlugInstall'
+echo 'then do :GoInstallBinaries'
 
 # add gnome tweaks
 sudo add-apt-repository universe
@@ -52,5 +53,6 @@ echo 'install more manually (gimp|slack|spotify|steam)'
 echo 'install tig'
 # tig https://github.com/jonas/tig/blob/master/INSTALL.adoc
 
-echo 'install nerd fonts'
+echo 'install nerd fonts Space Mono Nerd Font Mono'
+
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
