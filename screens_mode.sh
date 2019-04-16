@@ -13,10 +13,10 @@ detect_setup_table() {
 make_setup_table() {
   echo "Making Setup Table"
   xrandr \
-    --output ${LCD} --pos 0x0 --auto --mode 1920x1080
+    --output ${LCD} --pos 0x0 --auto --mode 2048x1152
   echo "Left on"
   xrandr \
-    --output ${MIDDLE_SCREEN} --pos 1920x0 --auto --primary
+    --output ${MIDDLE_SCREEN} --pos 3440x1440 --auto --primary
   echo "Middle on"
   xrandr \
     --output ${RIGHT_SCREEN} --rotate right --pos 5360x0 --auto
