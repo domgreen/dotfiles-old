@@ -47,6 +47,7 @@ echo 'install more manually (gimp|slack|spotify|steam)'
 # sudo snap install gimp
 # sudo snap install slack
 # sudo snap install spotify
+# sudo snap install inkscape
 # sudo apt -y install steam
 # sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 

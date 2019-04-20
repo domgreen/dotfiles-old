@@ -11,10 +11,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'myusuf3/numbers.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'scrooloose/syntastic'
-Plug 'nvie/vim-flake8'
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'jceb/vim-orgmode'
@@ -22,6 +18,10 @@ Plug 'tpope/vim-speeddating'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'rhysd/vim-grammarous'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()
 
 let mapleader=","
@@ -95,16 +95,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-
-" rust
-set hidden
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
-
 " go stuff
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
@@ -121,15 +111,56 @@ endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
-let g:go_fmt_command = "goimports"
-function! Imp()
-	execute "!"."go fmt"." ".bufname("%").">/dev/null 2>&1" | redraw!
-endfunction
+"let g:go_fmt_command = "goimports"
+"function! Imp()
+"	execute "!"."go fmt"." ".bufname("%").">/dev/null 2>&1" | redraw!
+"endfunction
 
-augroup dom
-	au!
-	au BufWrite *.go silent! :call Imp()
+"augroup dom
+"	au!
+"	au BufWrite *.go silent! :call Imp()
+"augroup END
+
+" Language Server
+set hidden
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
+" Launch gopls when Go files are in use
+let g:LanguageClient_serverCommands = {
+        \ 'go': ['gopls'],
+	\ 'python': ['/home/dominic/.local/bin/pyls']
+	\ }
+" Run gofmt and goimports on save
+autocmd BufWrite *.go :call LanguageClient#textDocument_formatting_sync()
+
+function SetLSPShortcuts()
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType go,python call SetLSPShortcuts()
 augroup END
+
+" move between buffers
+noremap <silent>]b :bnext<CR>
+noremap <silent>[b :bprevious<CR>
+
+" move between panes
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " FZF nicer search
 nnoremap <leader>p :Files<CR>
