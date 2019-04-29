@@ -172,5 +172,9 @@ nnoremap <leader>p :Files!<CR>
 " Like File, but with PWD.
 nnoremap <leader>P :call fzf#vim#files(expand("%:p:h"), fzf#vim#with_preview(), 1)<CR>
 
+" highligh in markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'go', 'java']
+
+
 " Org mode
 let g:org_agenda_files = ['~/org/index.org']

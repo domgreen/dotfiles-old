@@ -1,8 +1,8 @@
 #!/bin/bash
 
-LCD=eDP-1
+LCD=eDP-1-1
 RIGHT_SCREEN=DP-1-2
-MIDDLE_SCREEN=DP-1-1
+MIDDLE_SCREEN=DP-1-1-2
 
 detect_setup_table() {
   local xr_out=$(xrandr --current)
@@ -16,10 +16,10 @@ make_setup_table() {
     --output ${LCD} --pos 0x0 --auto --mode 2048x1152
   echo "Left on"
   xrandr \
-    --output ${MIDDLE_SCREEN} --pos 3440x1440 --auto --primary
+    --output ${MIDDLE_SCREEN} --pos 2048x0 --mode 3440x1440 --auto --primary
   echo "Middle on"
   xrandr \
-    --output ${RIGHT_SCREEN} --rotate right --pos 5360x0 --auto
+    --output ${RIGHT_SCREEN} --rotate left --pos 5488x0  --auto
   echo "Right on"
 }
 
