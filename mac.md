@@ -6,6 +6,7 @@ brew install ripgrep
 brew install exa
 brew install tig
 brew install direnv
+brew install graphviz
 
 which zsh
 chsh -s /usr/local/bin/zsh
