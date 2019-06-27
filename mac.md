@@ -17,4 +17,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
+pip install -U neovim
+pip3 install -U neovim
+
 ./install
