@@ -112,9 +112,9 @@ alias vim="nvim"
 
 # https://github.com/ogham/exa
 alias ls='exa'
-alias l='exa -l'
+alias l='exa -l --icons'
 alias lla='exa -la'
-alias lt='exa -T'
+alias lt='exa -T --icons'
 
 # enable fuzzy find
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
