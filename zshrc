@@ -118,3 +118,21 @@ alias lt='exa -T --icons'
 
 # enable fuzzy find
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export _start
+export TERMONITOR=0
+function startTime () {
+   if (( ${TERMONITOR}!=0 )); then
+	_start=$(($(date +%s%N)/1000000))
+   fi
+}
+
+function postCmd () {
+   _code=$?
+   if [ ${TERMONITOR}!=0 ] && [ $_start > 0 ]; then
+     _end=$(($(date +%s%N)/1000000))
+     echo "{ \"timestamp_ms\": \"$_start\", \"duration_ms\": \"$((_end-_start))\", \"code\": $_code, \"cmd\": \"$(history | tail -1 | head -1 | cut -c8-999)\", \"user\":\"$USER\", \"host\":\"$HOST\" }" >> $HOME/.termonitor
+   fi
+}
+
+add-zsh-hook preexec startTime
+add-zsh-hook precmd postCmd

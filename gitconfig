@@ -3,7 +3,7 @@
 [user]
 	name = Dominic Green
 	email = dominicgreen1@gmail.com
-	signingkey = C19F0F9E23537BA5
+	signingkey = 438431B464DEE1D5
 [push]
 	default = current
 [merge]
