@@ -127,10 +127,12 @@ function startTime () {
 }
 
 function postCmd () {
-   _code=$?
-   if [ ${TERMONITOR}!=0 ] && [ $_start > 0 ]; then
-     _end=$(($(date +%s%N)/1000000))
-     echo "{ \"timestamp_ms\": \"$_start\", \"duration_ms\": \"$((_end-_start))\", \"code\": $_code, \"cmd\": \"$(history | tail -1 | head -1 | cut -c8-999)\", \"user\":\"$USER\", \"host\":\"$HOST\" }" >> $HOME/.termonitor
+   CODE=$?
+   if (( ${TERMONITOR}!=0 )); then
+     if (( $_start > 0 )); then
+       _end=$(($(date +%s%N)/1000000))
+       echo "{ \"timestamp_ms\": \"$_start\", \"duration_ms\": \"$((_end-_start))\", \"code\": $CODE, \"cmd\": \"$(history | tail -1 | head -1 | cut -c8-999)\", \"user\":\"$USER\", \"host\":\"$HOST\" }" >> $HOME/.termonitor
+     fi
    fi
 }
 
