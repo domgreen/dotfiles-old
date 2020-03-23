@@ -66,6 +66,7 @@ plugins=(
   git
   kubectl
   zsh-autosuggestions
+  helm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -77,6 +78,7 @@ export GOBIN=$GOPATH/bin
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$GOBIN"
+export PATH="$PATH:/home/dominic/istio-1.4.3/bin"
 
 # User configuration
 
@@ -551,6 +553,10 @@ function postCmd () {
      fi
    fi
 }
+
+export PATH="${HOME}/.pyenv/bin:${PATH}"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 add-zsh-hook preexec startTime
 add-zsh-hook precmd postCmd
