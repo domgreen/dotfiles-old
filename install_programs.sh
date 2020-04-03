@@ -7,11 +7,10 @@ sudo apt-get -y install libevent-dev
 
 # neovim
 sudo apt-get -y install python-dev python-pip python3-dev python3-pip
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
 sudo apt-get -y install neovim
 mkdir -p .config/nvim/colors/
 cp colors/molokai.vim .config/nvim/colors/
+ln ~/.config/nvim/init.vim .vimrc
 
 echo 'open nvim and PlugInstall'
 echo 'then do :GoInstallBinaries'

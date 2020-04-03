@@ -3,7 +3,7 @@
 if [ "$TMUX" = "" ]; then tmux; fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/dominic/.oh-my-zsh"
+export ZSH="/home/dom/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -554,9 +554,3 @@ function postCmd () {
    fi
 }
 
-export PATH="${HOME}/.pyenv/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-add-zsh-hook preexec startTime
-add-zsh-hook precmd postCmd
