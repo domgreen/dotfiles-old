@@ -83,3 +83,11 @@ echo 'install tig'
 echo 'install nerd fonts Space Mono Nerd Font Mono'
 
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
+
+echo 'install gcloud https://cloud.google.com/sdk/docs/install'
+
+echo 'install cloud_sql_proxy https://cloud.google.com/sql/docs/mysql/connect-admin-proxy'
+
+echo 'installing mysql client'
+sudo apt-get -y install mysql-client
+
