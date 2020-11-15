@@ -5,10 +5,19 @@ sudo apt-get update
 sudo apt-get -y install libncurses5-dev libncursesw5-dev
 sudo apt-get -y install libevent-dev
 
+# curl
+sudo apt install zsh
+chsh -s $(which zsh)
+sudo apt install curl
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+
 # neovim
 sudo apt-get -y install python-dev python-pip python3-dev python3-pip
 sudo apt-get -y install neovim
-mkdir -p .config/nvim/colors/
+mkdir -p ~/.config/nvim/
+mkdir -p ~/.config/nvim/colors/
 cp colors/molokai.vim .config/nvim/colors/
 ln ~/.config/nvim/init.vim .vimrc
 
@@ -25,22 +34,40 @@ sudo apt -y install tmux
 # install direnv
 sudo apt -y install direnv
 
+# install jq
+sudo apt -y install jq
+
 # install rust
 curl https://sh.rustup.rs -sSf | sh
 
 # FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
+# install Tailscale
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key add -
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+sudo apt-get update
+sudo apt-get install -y tailscale
+
+# install kubectl
+sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
+# install kubectx
+echo 'install kubectx'
+
 # https://github.com/BurntSushi/ripgrep#installation
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
-sudo dpkg -i ripgrep_0.10.0_amd64.deb
+echo 'install rg'
 
 echo 'install fish esk completion'
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 #git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 echo 'install exa'
-# https://github.com/ogham/exa (downlaod zip)
+# cargo install exa
 
 echo 'install more manually (gimp|slack|spotify|steam)'
 # sudo snap install gimp
