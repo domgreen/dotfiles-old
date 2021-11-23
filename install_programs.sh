@@ -11,7 +11,8 @@ chsh -s $(which zsh)
 sudo apt install curl
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-
+# htop
+sudo apt-get -y install htop
 
 # neovim
 sudo apt-get -y install python-dev python-pip python3-dev python3-pip
@@ -91,3 +92,7 @@ echo 'install cloud_sql_proxy https://cloud.google.com/sql/docs/mysql/connect-ad
 echo 'installing mysql client'
 sudo apt-get -y install mysql-client
 
+echo 'installing bitwarden'
+sudo snap install bw
+
+echo 'install go https://golang.org/doc/install'

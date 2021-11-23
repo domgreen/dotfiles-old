@@ -66,12 +66,10 @@ plugins=(
   git
   kubectl
   zsh-autosuggestions
-  helm
 )
 
 source $ZSH/oh-my-zsh.sh
 eval "$(direnv hook zsh)"
-export PATH="$PATH:/improbable/tools/latest/linux"
 export PATH="$PATH:/usr/local/go/bin"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -79,6 +77,9 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$GOBIN"
 export PATH="$PATH:/home/dominic/istio-1.4.3/bin"
+export PATH="$PATH:$HOME/.tfenv/bin"
+export NODEJS_HOME=/opt/node-v14.15.4-linux-x64/bin
+export PATH="$PATH:$NODEJS_HOME"
 
 # User configuration
 
@@ -556,7 +557,7 @@ function postCmd () {
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/dom/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/dom/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/dom/google-cloud-sdk/path.zsh.inc' ]; then . '/home/dom/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/dom/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/dom/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/dom/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/dom/google-cloud-sdk/completion.zsh.inc'; fi
