@@ -1,7 +1,7 @@
 set nocompatible          "not compatible with vi
 filetype off              "required
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.config/nvim/autoload/plug.vim')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'

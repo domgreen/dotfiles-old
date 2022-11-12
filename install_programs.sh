@@ -6,10 +6,10 @@ sudo apt-get -y install libncurses5-dev libncursesw5-dev
 sudo apt-get -y install libevent-dev
 
 # curl
-sudo apt install zsh
-chsh -s $(which zsh)
-sudo apt install curl
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sudo apt install zsh
+# chsh -s $(which zsh)
+# sudo apt install curl
+# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # htop
 sudo apt-get -y install htop
@@ -26,11 +26,13 @@ echo 'open nvim and PlugInstall'
 echo 'then do :GoInstallBinaries'
 
 # add gnome tweaks
-sudo add-apt-repository universe
-sudo apt-get -y install gnome-tweak-tool
+#sudo add-apt-repository universe
+#sudo apt-get -y install gnome-tweak-tool
 
 # install tmux
 sudo apt -y install tmux
+sudo apt -y install tig
+sudo apt-get install ripgrep
 
 # install direnv
 sudo apt -y install direnv
@@ -45,17 +47,17 @@ curl https://sh.rustup.rs -sSf | sh
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 # install Tailscale
-curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key add -
-curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | sudo tee /etc/apt/sources.list.d/tailscale.list
-sudo apt-get update
-sudo apt-get install -y tailscale
+#curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key add -
+#curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+#sudo apt-get update
+#sudo apt-get install -y tailscale
 
 # install kubectl
-sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 curl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-sudo apt-get update
-sudo apt-get install -y kubectl
+#sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 curl
+#curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+#echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+#sudo apt-get update
+#sudo apt-get install -y kubectl
 
 # install kubectx
 echo 'install kubectx'
@@ -75,24 +77,12 @@ echo 'install more manually (gimp|slack|spotify|steam)'
 # sudo snap install slack
 # sudo snap install spotify
 # sudo snap install inkscape
+# sudo apt-get install ripgrep
 # sudo apt -y install steam
-# sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
-
-echo 'install tig'
-# tig https://github.com/jonas/tig/blob/master/INSTALL.adoc
 
 echo 'install nerd fonts Space Mono Nerd Font Mono'
-
 # https://github.com/ryanoasis/nerd-fonts#option-3-install-script
 
 echo 'install gcloud https://cloud.google.com/sdk/docs/install'
-
 echo 'install cloud_sql_proxy https://cloud.google.com/sql/docs/mysql/connect-admin-proxy'
-
-echo 'installing mysql client'
-sudo apt-get -y install mysql-client
-
-echo 'installing bitwarden'
-sudo snap install bw
-
 echo 'install go https://golang.org/doc/install'
