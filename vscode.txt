@@ -1,0 +1,22 @@
+- block sort
+- code spell
+- dracula intellij theme
+- dev containers
+- docker
+- editor config
+- github copiolet
+- github pull request
+- gitlens
+- go 
+- cloud spanner
+- hashicorp terraform
+- jira
+- Kubernetes
+- live share
+- make
+- makefile tools
+- path intellisense
+- python
+- terraform
+- vscode-icons
+- yaml
